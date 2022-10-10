@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block header %}
+
+<div class="container col-xxl-8 px-4 py-2">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+      <div class="col-10 col-sm-8 col-lg-6">
+        <!-- <img src="bootstrap-themes.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy"> -->
+        <img src="/media/junior_soccer.svg" class="d-block mx-lg-auto img-fluid" alt="Soccer Player" width="700" height="500" loading="lazy">
+      </div>
+      <div class="col-lg-6">
+        <h1 class="display-5 fw-bold lh-1 mb-3">Find your football team</h1>
+        <h2 class="display-5 fw-bold lh-1 mb-3">Kick-off is your life</h2>
+        <p class="lead">
+            You can view soccer team list that you need to know the details. To view details of each team, you need to sign up. Enjoy your football with new specatcle teammates! 
+            This is my Django learning project. Plan, design, development, deployment are all handled by myself.
+        </p>
+      </div>
+    </div>
+</div>
+{% endblock header %}
+
+{% block content %}
+<div class="container col-xxl-8 px-4 py-2">
+    <p>Team List Slider here</p>
+    <div class="row">
+        {% for team in object_list %}
+        <div class="col-sm-4">
+          <div class="card">
+            <img src="{{ team.featured_image.url }}" class="card-img-top" alt="">
+            <div class="card-body">
+              <p class="card-text">Updated: {{ team.updated_date|date:"Y-m-d" }}</p>
+              <h5 class="card-title">{{ team.team_name }}</h5>
+              <p class="card-text">{{ team.description }}</p>
+              <a href="#" class="btn btn-primary">READ MORE</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content %}
