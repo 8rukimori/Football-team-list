@@ -15,9 +15,9 @@
       </div>
     </div>
     <div class="container py-2">
-      <a class="btn btn-primary" href="#" role="button">Twitter</a>
-      <a class="btn btn-primary" href="#" role="button">Instagram</a>
-      <a class="btn btn-primary" href="#" role="button">Website</a>
+      <a class="btn btn-primary" href="{{ object.twitter }}" role="button">Twitter</a>
+      <a class="btn btn-primary" href="{{ object.instagram }}" role="button">Instagram</a>
+      <a class="btn btn-primary" href="{{ object.website }}" role="button">Website</a>
     </div>
 </div>
 {% endblock header %}
@@ -59,7 +59,23 @@
             </h2>
             <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo">
                 <div class="accordion-body">
-                aaa
+                    <div class="row">
+                        {% for player in object.Players.all %}
+                        <div class="col-sm-4">
+                          <div class="card">
+                            <div class="card-body">
+                              <h5 class="card-title">{{ player.player_name }}</h5>
+                              <p class="card-text">{{ player.number }}/{{ player.position }}</p>
+                              <p class="card-text">Foot: {{ player.foot }}</p>
+                              <p class="card-text">Height: {{ player.height }}cm</p>
+                              <p class="card-text">Weight: {{ player.weight }}kg</p>
+                              <p class="card-text">Voice:</p>
+                              <p class="card-text">{{ player.voice|linebreaksbr }}</p>
+                            </div>
+                          </div>
+                        </div>
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
         </div>

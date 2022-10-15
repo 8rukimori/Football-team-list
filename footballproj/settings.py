@@ -115,6 +115,8 @@ MEDIA_URL = 'medi/'
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
+LOGIN_URL = "login"
+
 
 #Prefecture list(Value,Label)
 PREFECTURES = [ 

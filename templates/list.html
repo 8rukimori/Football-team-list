@@ -32,7 +32,7 @@
               <p class="card-text">Updated: {{ team.updated_date|date:"Y-m-d" }}</p>
               <h5 class="card-title">{{ team.team_name }}</h5>
               <p class="card-text">{{ team.description }}</p>
-              <a href="#" class="btn btn-primary">READ MORE</a>
+              <a href="{% url 'detail' team.pk %}" class="btn btn-primary">READ MORE</a>
             </div>
           </div>
         </div>

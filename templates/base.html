@@ -19,14 +19,17 @@
               </a>
         
               <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="#" class="nav-link px-2 link-secondary">TOP</a></li>
+                <li><a href="{% url 'list' %}" class="nav-link px-2 link-secondary">TOP</a></li>
                 <li><a href="#" class="nav-link px-2 link-dark">MYTEAM</a></li>
                 <!-- <li><a href="#" class="nav-link px-2 link-dark">ADMIN</a></li> -->
               </ul>
         
               <div class="col-md-3 text-end">
-                <button type="button" class="btn btn-outline-primary me-2">LOGIN</button>
-                <button type="button" class="btn btn-primary">SIGN-UP</button>
+                {% if user.is_authenticated %}
+                <a class="btn btn-primary" href="{% url 'logout' %}" role="button">Logout</a>
+                {% else %}
+                <a class="btn btn-outline-primary me-2" href="{% url 'login' %}" role="button">Login</a>
+                {% endif %}
               </div>
             </header>
           </div>

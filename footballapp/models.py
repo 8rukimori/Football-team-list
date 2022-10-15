@@ -35,3 +35,38 @@ class TeamModel(models.Model):
     def __str__(self):
         return self.team_name
 
+
+class PlayerModel(models.Model):
+    team = models.ForeignKey(TeamModel,related_name='Players',on_delete=models.CASCADE)
+    player_name = models.CharField(max_length=256)
+    number = models.IntegerField(default=1) #チーム内で重複させない（今後）
+
+    POSITION_CHOICES = [
+        ("FW", "FW"),
+        ("MF", "MF"),
+        ("DF", "DF"),
+        ("GK", "GK"),
+        ]
+    #ポジションごとにカード色分け（今後）
+
+    position = models.CharField(
+        max_length = 16,
+        choices = POSITION_CHOICES,
+    )
+    
+    FOOT_CHOICE = [
+        ("Right", "Right"),
+        ("Left", "Left"),
+        ]
+
+    foot = models.CharField(
+        max_length=256,
+        choices = FOOT_CHOICE,
+        )
+
+    height = models.IntegerField()
+    weight = models.IntegerField()
+    voice = models.TextField(blank=True, null=True)
+    
+    def __str__(self):
+        return self.player_name
