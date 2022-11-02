@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from django.contrib.auth.models import User
 
 class TeamModel(models.Model):
     team_name = models.CharField(max_length=256)
@@ -35,7 +36,6 @@ class TeamModel(models.Model):
     def __str__(self):
         return self.team_name
 
-
 class PlayerModel(models.Model):
     team = models.ForeignKey(TeamModel,related_name='Players',on_delete=models.CASCADE)
     player_name = models.CharField(max_length=256)
@@ -70,3 +70,17 @@ class PlayerModel(models.Model):
     
     def __str__(self):
         return self.player_name
+
+class MyTeam(models.Model):
+
+    supporter = models.ForeignKey(
+        User, 
+        on_delete = models.CASCADE, 
+        related_name = "supporter"
+        )
+    
+    myteam = models.ForeignKey(
+        TeamModel, 
+        on_delete = models.CASCADE,
+        related_name = "myteam"
+    )

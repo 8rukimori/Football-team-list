@@ -4,20 +4,20 @@
 
 <div class="container col-xxl-8 px-4 py-2">
     <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-      <div class="col-10 col-sm-8 col-lg-6">
+      <div class="col-10 col-sm-8 col-lg-4">
         <img src="{{ object.logo.url }}" class="d-block mx-lg-auto img-fluid" alt="Soccer Player" width="700" height="500" loading="lazy">
       </div>
-      <div class="col-lg-6">
-        <p><span class="badge bg-secondary">{{ object.hometown }}</span></p>
+      <div class="col-lg-8">
+        <p><span class="badge">{{ object.hometown }}</span></p>
         <h1 class="display-5 fw-bold lh-1 mb-3">{{ object.team_name }}</h1>
         <h2 class="display-5 fw-bold lh-1 mb-3">{{ object.headline }}</h2>
         <p class="lead">{{ object.description }}</p>
       </div>
     </div>
     <div class="container py-2">
-      <a class="btn btn-primary" href="{{ object.twitter }}" role="button">Twitter</a>
-      <a class="btn btn-primary" href="{{ object.instagram }}" role="button">Instagram</a>
-      <a class="btn btn-primary" href="{{ object.website }}" role="button">Website</a>
+      <a class="btn twitter" href="{{ object.twitter }}" role="button">Twitter</a>
+      <a class="btn instagram" href="{{ object.instagram }}" role="button">Instagram</a>
+      <a class="btn website" href="{{ object.website }}" role="button">Website</a>
     </div>
 </div>
 {% endblock header %}
@@ -62,14 +62,14 @@
                     <div class="row">
                         {% for player in object.Players.all %}
                         <div class="col-sm-4">
-                          <div class="card">
+                          <div class="card player-card">
                             <div class="card-body">
-                              <h5 class="card-title">{{ player.player_name }}</h5>
-                              <p class="card-text">{{ player.number }}/{{ player.position }}</p>
-                              <p class="card-text">Foot: {{ player.foot }}</p>
-                              <p class="card-text">Height: {{ player.height }}cm</p>
-                              <p class="card-text">Weight: {{ player.weight }}kg</p>
-                              <p class="card-text">Voice:</p>
+                              <h3 class="card-title">{{ player.player_name }}</h5>
+                              <p class="card-text player-card-subtitle">{{ player.number }} / {{ player.position }}</p>
+                              <p class="card-text player-card-text">Foot: {{ player.foot }}</p>
+                              <p class="card-text player-card-text">Height: {{ player.height }}cm</p>
+                              <p class="card-text player-card-text">Weight: {{ player.weight }}kg</p>
+                              <p class="card-text player-card-voice">Voice:</p>
                               <p class="card-text">{{ player.voice|linebreaksbr }}</p>
                             </div>
                           </div>
@@ -83,7 +83,15 @@
 </div>
 
 <div class="container col-xxl-8 px-4 py-2">
-    <a class="btn btn-primary" href="#" role="button">LIKE THIS TEAM</a>
+    <form action="{% url 'toggle_support_receive_team_status' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="team_id" value="{{ object.pk }}">
+        {% if is_exist_support %}
+        <input type="submit" name="submit" class="btn support_button" value="Remove from Myteam"/>
+        {% else %}
+        <input type="submit" name="submit" class="btn support_button" value="Add to Myteam"/>
+        {% endif %}
+    </form>
 </div>
 
 {% endblock content %}
