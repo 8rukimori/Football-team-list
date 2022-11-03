@@ -6,6 +6,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from .forms import LoginForm, SignUpForm
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 
 
 class TeamList(ListView):
@@ -73,3 +74,30 @@ class MyTeamList(ListView):
 
     def get_queryset(self):
         return MyTeam.objects.filter(supporter=self.request.user)
+
+
+class TokyoList(ListView):
+    template_name = "list.html"
+
+    def get_queryset(self):
+        return TeamModel.objects.filter(hometown="Tokyo")
+
+
+class OsakaList(ListView):
+    template_name = "list.html"
+
+    def get_queryset(self):
+        return TeamModel.objects.filter(hometown="Osaka")
+
+class AichiList(ListView):
+    template_name = "list.html"
+
+    def get_queryset(self):
+        return TeamModel.objects.filter(hometown="Aichi")
+
+
+class OthersList(ListView):
+    template_name = "list.html"
+
+    def get_queryset(self):
+        return TeamModel.objects.all().exclude( Q(hometown="Tokyo")| Q(hometown="Osaka")| Q(hometown="Aichi") )

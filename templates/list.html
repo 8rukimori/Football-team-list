@@ -5,8 +5,7 @@
 <div class="container col-xxl-8 px-4 py-2">
     <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
       <div class="col-10 col-sm-8 col-lg-4">
-        <!-- <img src="bootstrap-themes.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy"> -->
-        <img src="/media/junior_soccer.svg" class="d-block mx-lg-auto img-fluid" alt="Soccer Player" width="700" height="500" loading="lazy">
+        <img src="static/images/junior_soccer.svg" class="d-block mx-lg-auto img-fluid" alt="Soccer Player" width="700" height="500" loading="lazy">
       </div>
       <div class="col-lg-8">
         <h1 class="lh-1 mb-3">Find your football team</h1>
@@ -22,22 +21,40 @@
 
 {% block content %}
 <div class="container col-xxl-8 px-4 py-2">
-    <p>Team List Slider here</p>
-    <div class="row">
-        {% for team in object_list %}
-        <div class="col-sm-4">
-          <div class="card">
-            <img src="{{ team.featured_image.url }}" class="card-img-top" alt="">
-            <div class="card-body">
-              <p class="card-ymd">Updated: {{ team.updated_date|date:"Y-m-d" }}</p>
-              <h5 class="card-title">{{ team.team_name }}</h5>
-              <p class="card-text">{{ team.description }}</p>
-              <a href="{% url 'detail' team.pk %}" class="read-more">READ MORE</a>
-            </div>
-          </div>
+  <div class="nav-wrapper">
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="{% url 'list' %}">All</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'list-tokyo' %}">Tokyo</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'list-osaka' %}">Osaka</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'list-aichi' %}">Aichi</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'list-others' %}">Others</a>
+      </li>
+    </ul>
+  </div>
+  <div class="row">
+      {% for team in object_list %}
+    <div class="col-sm-4">
+      <div class="card">
+        <img src="{{ team.featured_image.url }}" class="card-img-top" alt="">
+        <div class="card-body">
+          <p class="card-ymd">Updated: {{ team.updated_date|date:"Y-m-d" }}</p>
+          <h5 class="card-title">{{ team.team_name }}</h5>
+          <p class="card-text">{{ team.description }}</p>
+          <a href="{% url 'detail' team.pk %}" class="read-more">READ MORE</a>
         </div>
-        {% endfor %}
+      </div>
     </div>
+      {% endfor %}
+  </div>
 </div>
 
 {% endblock content %}

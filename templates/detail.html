@@ -42,11 +42,11 @@
                     <p>Head coach: {{ object.headcoach }}</p>
                     <p>Clubhouse Location: {{ object.clubhouse_location }}</p>
                     <p>Players: {{ object.team_name }}</p>
-                    <p>Achievement: {{ object.achievement|linebreaksbr }}</p>
+                    <p>Achievement:<br>{{ object.achievement|linebreaksbr }}</p>
                 </div>
                 <div>
                     <h3>Headcoach Message</h3>
-                    <p>Achievement: {{ object.headcoach_message|linebreaksbr }}</p>    
+                    <p>{{ object.headcoach_message|linebreaksbr }}</p>    
                 </div>
             {{ object.description }}
             </div>
