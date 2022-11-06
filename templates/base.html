@@ -18,27 +18,39 @@
   </head>
   <body>
     <main>
-        <div class="container">
-            <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-              <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-                <p class="head-logo">Football team list</p>
-              </a>
-        
-              <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="{% url 'list' %}" class="nav-link px-2 link-secondary">TOP</a></li>
-                <li><a href="{% url 'myteamlist' %}" class="nav-link px-2 link-dark">MYTEAM</a></li>
-                <!-- <li><a href="#" class="nav-link px-2 link-dark">ADMIN</a></li> -->
-              </ul>
-        
-              <div class="col-md-3 text-end">
-                {% if user.is_authenticated %}
-                <a class="btn btn-primary" href="{% url 'logout' %}" role="button">Logout</a>
-                {% else %}
-                <a class="btn btn-outline-primary me-2" href="{% url 'login' %}" role="button">Login</a>
-                {% endif %}
-              </div>
-            </header>
-          </div>
+        <div class="container col-xxl-8 px-4 py-2">
+          <header class="d-flex justify-content-center py-3">
+            <a href="/" class="align-items-center mb-md-0 me-md-auto text-dark text-decoration-none">
+              <p id="app_title">Football Team List</p>
+            </a>
+
+            {% if request.path == "/myteamlist/" %}
+      
+            <ul class="nav nav-pills">
+              <li class="nav-item"><a href="{% url 'list' %}" class="nav-link">TOP</a></li>
+              <li class="nav-item"><a href="{% url 'myteamlist' %}" class="nav-link nav-active">MYTEAM</a></li>
+              {% if user.is_authenticated %}
+              <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link">LOGOUT</a></li>
+              {% else %}
+              <li class="nav-item"><a href="{% url 'login' %}" class="nav-link">LOGIN</a></li>
+              {% endif %}
+            </ul>
+
+            {% else %}
+            <ul class="nav nav-pills">
+              <li class="nav-item"><a href="{% url 'list' %}" class="nav-link nav-active">TOP</a></li>
+              <li class="nav-item"><a href="{% url 'myteamlist' %}" class="nav-link">MYTEAM</a></li>
+              {% if user.is_authenticated %}
+              <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link">LOGOUT</a></li>
+              {% else %}
+              <li class="nav-item"><a href="{% url 'login' %}" class="nav-link">LOGIN</a></li>
+              {% endif %}
+            </ul>
+            {% endif %}
+
+          </header>
+        </div>
+    </main>
 
     {% block header %}
     

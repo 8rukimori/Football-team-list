@@ -75,7 +75,6 @@ class MyTeamList(ListView):
     def get_queryset(self):
         return MyTeam.objects.filter(supporter=self.request.user)
 
-
 class TokyoList(ListView):
     template_name = "list.html"
 

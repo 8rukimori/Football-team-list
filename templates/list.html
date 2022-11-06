@@ -20,11 +20,103 @@
 {% endblock header %}
 
 {% block content %}
+
 <div class="container col-xxl-8 px-4 py-2">
+
+  {% if request.path == "/tokyo/" %}
+  
   <div class="nav-wrapper">
     <ul class="nav">
       <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="{% url 'list' %}">All</a>
+        <a class="nav-link" aria-current="page" href="{% url 'list' %}">All</a>
+      </li>
+      <li class="nav-item-active">
+        <a class="nav-link nav-active" href="{% url 'list-tokyo' %}">Tokyo</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'list-osaka' %}">Osaka</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'list-aichi' %}">Aichi</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'list-others' %}">Others</a>
+      </li>
+    </ul>
+  </div>
+
+  {% elif request.path == "/osaka/" %}
+
+  <div class="nav-wrapper">
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link" aria-current="page" href="{% url 'list' %}">All</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'list-tokyo' %}">Tokyo</a>
+      </li>
+      <li class="nav-item-active">
+        <a class="nav-link nav-active" href="{% url 'list-osaka' %}">Osaka</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'list-aichi' %}">Aichi</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'list-others' %}">Others</a>
+      </li>
+    </ul>
+  </div>
+
+  {% elif request.path == "/aichi/" %}
+
+  <div class="nav-wrapper">
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link" aria-current="page" href="{% url 'list' %}">All</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'list-tokyo' %}">Tokyo</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'list-osaka' %}">Osaka</a>
+      </li>
+      <li class="nav-item-active">
+        <a class="nav-link nav-active" href="{% url 'list-aichi' %}">Aichi</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'list-others' %}">Others</a>
+      </li>
+    </ul>
+  </div>
+
+  {% elif request.path == "/others/" %}
+
+  <div class="nav-wrapper">
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link" aria-current="page" href="{% url 'list' %}">All</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'list-tokyo' %}">Tokyo</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'list-osaka' %}">Osaka</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'list-aichi' %}">Aichi</a>
+      </li>
+      <li class="nav-item-active">
+        <a class="nav-link nav-active" href="{% url 'list-others' %}">Others</a>
+      </li>
+    </ul>
+  </div>
+
+  {% else %} 
+
+  <div class="nav-wrapper">
+    <ul class="nav">
+      <li class="nav-item-active">
+        <a class="nav-link nav-active" aria-current="page" href="{% url 'list' %}">All</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{% url 'list-tokyo' %}">Tokyo</a>
@@ -40,6 +132,9 @@
       </li>
     </ul>
   </div>
+  
+  {% endif %}
+
   <div class="row">
       {% for team in object_list %}
     <div class="col-sm-4">
