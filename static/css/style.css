@@ -1,0 +1,257 @@
+/* General Style */
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #424242;
+}
+
+#app_title {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.btn-light {
+    background-color: #ef5da8;
+    color: #fff;
+    border: none;
+    height: 2em;
+}
+
+.btn-light:hover {
+    background-color: #fcddec;
+    color: #ef5da8;
+    border: none;
+}
+
+.after-button {
+    margin-bottom: 5%;
+}
+
+.form-title {
+    font-weight: 800;
+    margin-bottom: 10%;
+}
+
+.form-controler {
+    width: 100%;
+    height: 3em;
+    border: none;
+    margin-bottom: 5%;
+    border-bottom: solid 1px #999999;
+}
+
+.form-controler:hover {
+    border: none;
+    border-bottom: solid 1px #999999;
+}
+
+/* Hero Style */
+
+h1 {
+    color: #ef5da8;
+    font-weight: 700;
+    font-size: 42px;
+}
+
+h2 {
+    font-weight: 500;
+    font-size: 42px;
+}
+
+.lead {
+    font-weight: 400;
+    font-size: 18px;
+}
+
+ /* Card Style */
+
+.nav {
+    margin-bottom: 5em;
+}
+
+.nav-link {
+    color: #424242;
+    text-decoration: none;
+}
+
+
+.nav-link:hover {
+    color: #ef5da8;
+}
+
+.nav-active {
+    color: #ef5da8;
+    text-decoration: none;
+}
+
+.nav-item-active {
+    border-bottom: solid 2px #ef5da8;
+}
+
+
+
+.card-ymd {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+h5 .card-title {
+    color: #ef5da8;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.card-text {
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.read-more {
+    color: #ef5da8;
+    font-weight: 500;
+    font-size: 16px;
+    text-decoration: none;
+    border-bottom: solid 2px #ef5da8;
+}
+
+.read-more:hover {
+    color: #fcddec;
+    border-bottom: solid 2px #fcddec;
+}
+
+
+
+/* Detail Style General */
+
+.badge {
+    background-color: #fcddec;
+    color: #ef5da8;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.twitter {
+    background-color: #47ACDF;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 12px;
+    border-radius: 0;
+}
+
+.twitter:hover {
+    background-color: #BEE8FD;
+    color: #47ACDF;
+}
+
+.twitter:before {
+    content: "";
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 0 5px 0 0;
+    background: url("../images/twitter.png") no-repeat;
+    background-size: contain;
+    vertical-align: middle;
+  }
+
+.instagram {
+    background-color: #f178b6;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 12px;
+    border-radius: 0;
+}
+
+.instagram:hover {
+    background-color: #fcddec;
+    color: #f178b6;
+}
+
+.instagram:before {
+    content: "";
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 0 5px 0 0;
+    background: url("../images/instagram.png") no-repeat;
+    background-size: contain;
+    vertical-align: middle;
+  }
+
+.website {
+    background-color: #5d5fef;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 12px;
+    border-radius: 0;
+}
+
+.website:hover {
+    background-color: #a5a6f6;
+    color: #5d5fef;
+}
+
+.website:before {
+    content: "";
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 0 5px 0 0;
+    background: url("../images/website_icon.png") no-repeat;
+    background-size: contain;
+    vertical-align: middle;
+}
+
+/* Accordion Style */
+
+.accordion-button {
+    color: #f178b6;
+    background-color: #fafafa;
+}
+
+.accordion-button:not(.collapsed) {
+    color: #f178b6;
+    background-color: #fcddec;
+    font-weight: 700;
+}
+
+/* Detail Team Info Style */
+h3 {
+    color: #5d5fef;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+/* Player Card Style */
+
+.player-card {
+    background-color: #fafafa;
+    border: 0px;
+    border-radius: 0px;
+}
+
+.player-card-body {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.player-card-subtitle {
+    font-weight: 600;
+}
+
+.player-card-voice {
+    text-decoration: underline;
+}
+
+.support_button {
+    background-color: #ef5da8;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 0;
+}
+
+.support_button:hover {
+    background-color: #fcddec;
+    color: #ef5da8;
+}

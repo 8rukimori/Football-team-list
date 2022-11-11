@@ -1,16 +1,13 @@
-<!DOCTYPE html>
-<html lang="ja">
+{% extends "base.html" %}
 
-
-<head>
-<meta charset="UTF-8">
-<title>Logout</title>
-</head>
+{% block content %}
 
 
 <body>
-    <h1>You are logged out</h1>
-    <p><a href="{% url 'list' %}">Back to Top</a></p>
+    <div class="container col-xxl-8 px-4 py-2">
+        <h1 class="logout">You are logged out</h1>
+        <p><a href="{% url 'list' %}">Back to Top</a></p>
+    </div>
 </body>
 
-</html>
+{% endblock content %}

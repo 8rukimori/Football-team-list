@@ -65,8 +65,7 @@ def toggle_support_receive_team_status(request):
         MyTeam.objects.create(supporter=new_supporter, myteam=support_get_team)
     else:
         exist_support_team.delete()
-    #前の画面のUrlの形に修正
-    # return redirect('/userbloglist/' + str(send_user.id) + '/?user=' + request.POST["user_id"])
+
     return redirect("list")
 
 class MyTeamList(ListView): 

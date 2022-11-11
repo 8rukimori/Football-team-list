@@ -1,26 +1,31 @@
-<!DOCTYPE html>
-<html lang="ja">
+{% extends "base.html" %}
 
+{% load widget_tweaks %}
 
-<head>
-<meta charset="UTF-8">
-<title>User Form</title>
-</head>
-
+{% block content %}
 
 <body>
-    <form action="" method="POST">
-        {{ form.non_field_errors }}
-        {% for field in form %}
-        {{ field }}
-        {{ field.errors }}
-        <hr>
-        {% endfor %}
-        <button type="submit">Login</button>{% csrf_token %}
-        <input name="next" type="hidden" value="{% url 'list' %}"/>
-    </form>
-    <p>Don't have any account? Sign up <a href="{% url 'signup' %}">here</a>.</p>
+    <main class="form-signin">
+        <div class="container col-xxl-4 px-4 py-2">
+            <form action="" method="POST">
+                <h1 class="form-title">LOGIN</h1>
+                <div class="mb-3">
+                {{ form.non_field_errors }}
+                {% for field in form %}
+                {{ field | add_class:"form-controler" }}
+                {{ field.errors }}
+                {% endfor %}
+                </div>
+                <div class="d-grid gap-2 after-button">
+                    <button type="submit button" class="btn-light">Login</button>{% csrf_token %}
+                </div>
+                <input name="next" type="hidden" value="{% url 'list' %}"/>
+            </form>
+            <p>Don't have any account? Sign up <a href="{% url 'signup' %}">here</a>.</p>
+        </div>
+    </main>
+
 </body>
 
 
-</html>
+{% endblock content %}

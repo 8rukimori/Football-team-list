@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "footballapp.apps.FootballappConfig",
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
